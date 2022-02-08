@@ -17,16 +17,14 @@ def weierstrass(x):
     result = sum1 - (len(x) * sum3)
     return  result
 
-#used codes from Tutorial
 def plot3D(fn, xLowerBound, xUpperbound, yLowerBound, yUpperbound,name):
-    X = np.linspace(xLowerBound, xUpperbound, 200)  # points in the x axis
-    Y = np.linspace(yLowerBound, yUpperbound, 200)  # points in the y axis
-    X, Y = np.meshgrid(X, Y)  # create meshgrid
-    Z = fn([X, Y])  # Calculate Z
+    X = np.linspace(xLowerBound, xUpperbound, 200)
+    Y = np.linspace(yLowerBound, yUpperbound, 200)
+    X, Y = np.meshgrid(X, Y)
+    Z = fn([X, Y])
 
-    # Plot the 3D surface for function from project
     fig = plt.figure(name)
-    ax = fig.gca(projection='3d')  # set the 3d axes
+    ax = fig.gca(projection='3d')
     ax.plot_surface(
         X, Y, Z,
         rstride=1, 
@@ -36,8 +34,6 @@ def plot3D(fn, xLowerBound, xUpperbound, yLowerBound, yUpperbound,name):
         linewidth=0.1
     )
     plt.title(name)
-    #plt.savefig("../img/2d3D/" + name + ".png", bbox_inches='tight')
-    #plt.close()
     plt.show()
 
-plot3D(weiestrass,0,1,0,1,"Weierstrass Function")
+plot3D(weierstrass,0,1,0,1,"Weierstrass Function")
